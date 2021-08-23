@@ -40,6 +40,8 @@ namespace RandomProject
     {
         static void Main(string[] args)
         {
+            Calculator calc = new Calculator();
+
             // Calculator
 
             /*
@@ -189,8 +191,6 @@ namespace RandomProject
             // Calculator with class
 
             /*
-            Calculator calc = new Calculator();
-
             string operator2;
             int firstnum;
             int secondnum;
@@ -226,6 +226,36 @@ namespace RandomProject
 
                     Console.WriteLine("Result: " + result);
                     break;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Press any key to close the program...");
+            Console.ReadKey();
+            */
+
+            // Number generator with class
+
+            /*
+            int amount;
+            int generatedNumbersCount = 0;
+            int num1;
+            int num2;
+            int result;
+
+            Console.Write("How many random numbers do you want: ");
+            amount = Convert.ToInt32(Console.ReadLine()) - 1;
+
+            Console.Write("The random numbers have to be between: ");
+            num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("And: ");
+            num2 = Convert.ToInt32(Console.ReadLine());
+
+            while(generatedNumbersCount <= amount) {
+                result = calc.GenerateNum(num1, num2);
+
+                Console.WriteLine(result);
+                generatedNumbersCount++;
             }
 
             Console.ForegroundColor = ConsoleColor.Red;
