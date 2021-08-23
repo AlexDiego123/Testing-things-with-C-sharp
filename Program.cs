@@ -2,6 +2,40 @@
 
 namespace RandomProject
 {
+
+    class Calculator {
+        public int GenerateNum(int num01, int num02) {
+            Random numberGen = new Random();
+
+            int result = numberGen.Next(num01, num02);
+
+            return result;
+        }
+
+        public int Add(int num01, int num02) {
+            int result = num01 + num02;
+
+            return result;
+        }
+
+        public int Subtract(int num01, int num02) {
+            int result = num01 - num02;
+
+            return result;
+        }
+
+        public int Multiply(int num01, int num02) {
+            int result = num01 * num02;
+
+            return result;
+        }
+
+        public int Divide(int num01, int num02) {
+            int result = num01 / num02;
+
+            return result;
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -145,6 +179,53 @@ namespace RandomProject
             while(randomNumberCount <= randomNumberAmount) {
                 RandomNumber();
                 randomNumberCount++;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Press any key to close the program...");
+            Console.ReadKey();
+            */
+
+            // Calculator with class
+
+            /*
+            Calculator calc = new Calculator();
+
+            string operator2;
+            int firstnum;
+            int secondnum;
+            int result;
+
+            Console.Write("Please enter an operator (+,-,/,*): ");
+            operator2 = Console.ReadLine();
+
+            Console.Write("Please enter the first number: ");
+            firstnum = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Please enter the second number: ");
+            secondnum = Convert.ToInt32(Console.ReadLine());
+
+            switch(operator2) {
+                case "+":
+                    result = calc.Add(firstnum, secondnum);
+
+                    Console.WriteLine("Result: " + result);
+                    break;
+                case "-":
+                    result = calc.Subtract(firstnum, secondnum);
+
+                    Console.WriteLine("Result: " + result);
+                    break;
+                case "*":
+                    result = calc.Multiply(firstnum, secondnum);
+
+                    Console.WriteLine("Result: " + result);
+                    break;
+                case "/":
+                    result = calc.Divide(firstnum, secondnum);
+
+                    Console.WriteLine("Result: " + result);
+                    break;
             }
 
             Console.ForegroundColor = ConsoleColor.Red;
