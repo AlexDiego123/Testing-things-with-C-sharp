@@ -4,6 +4,25 @@ namespace RandomProject
 {
 
     class Calculator {
+
+        public int GuessTheNumber(int difficulty) {
+            Random numberGen = new Random();
+            int number = 0;
+
+            switch(difficulty) {
+                case 1:
+                    number = numberGen.Next(1, 20);
+                    break;
+                case 2:
+                    number = numberGen.Next(1, 50);
+                    break;
+                case 3:
+                    number = numberGen.Next(1, 100);
+                    break;
+            }
+
+            return number;
+        }
         public int GenerateNum(int num01, int num02) {
             Random numberGen = new Random();
 
@@ -262,12 +281,75 @@ namespace RandomProject
             Console.WriteLine("Press any key to close the program...");
             Console.ReadKey();
             */
+
+            // Guess the number v3
+
+            /*
+            int difficulty;
+            int result;
+
+            Console.Write("Difficulty (1,2,3): ");
+            difficulty = Convert.ToInt32(Console.ReadLine());
+
+            if(difficulty != 1 && difficulty != 2 && difficulty != 3) {
+                Console.WriteLine("Invalid Difficulty");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Press any key to close the program...");
+                Console.ReadKey();
+            } else {
+                result = calc.GuessTheNumber(difficulty);
+
+                switch(difficulty) {
+                    case 1:
+                        Console.WriteLine("Try to guess my number from 0 to 20, you have 5 attempts");
+                        GuessTheNumberStart(result);
+                        break;
+                    case 2:
+                        Console.WriteLine("Try to guess my number from 0 to 50, you have 5 attempts");
+                        GuessTheNumberStart(result);
+                        break;
+                    case 3:
+                        Console.WriteLine("Try to guess my number from 0 to 100, you have 5 attempts");
+                        GuessTheNumberStart(result);
+                        break;
+                }
+            }
+            */
         }
 
         static void RandomNumber() {
             Random numberGen = new Random();
             int number = numberGen.Next(1, 100);
             Console.WriteLine(number);
+        }
+
+        static void GuessTheNumberStart(int result) {
+            int guess;
+            int attemptsCount = 0;
+            
+            while(attemptsCount <= 4) {
+                guess = Convert.ToInt32(Console.ReadLine());
+
+                if(guess == result) {
+                    Console.WriteLine("Correct!");
+                    break;
+                } else {
+                    Console.WriteLine("Incorrect");
+                    attemptsCount++;
+                    continue;
+                }
+            }
+
+            if(attemptsCount >= 4) {
+                Console.WriteLine("You didn't guess the number after 5 attempts");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Press any key to close the program...");
+                Console.ReadKey();
+            } else {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Press any key to close the program...");
+                Console.ReadKey();
+            }
         }
     }
 }
